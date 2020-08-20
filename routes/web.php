@@ -20,3 +20,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Estas son las rutas que estaran asociadas con la ESPECIALIDAD
+    // :: vervo HTTP                                //@ método q atiende la peticion en el controlador
+
+Route::get('/specialties', 'SpecialtyController@index');
+Route::get('/specialties/create', 'SpecialtyController@create');  //muestra formulario de registro
+Route::get('/specialties/{specialty}/edit', 'SpecialtyController@edit');
+Route::post('/specialties', 'SpecialtyController@store'); //envio del formulario de registro o mostrar errores
+Route::put('/specialties/{specialty}', 'SpecialtyController@update');  //guarda los cambios en la DB
+Route::delete('/specialties/{specialty}', 'SpecialtyController@destroy');  //guarda los cambios en la DB
+
+//Doctors
+Route::resource('doctors', 'DoctorController');
+
+//Patients

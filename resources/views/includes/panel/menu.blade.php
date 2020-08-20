@@ -7,22 +7,22 @@
     </a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="./examples/icons.html">
+    <a class="nav-link" href="{{ url('specialties') }}">
         <i class="ni ni-badge  text-blue"></i> Especialidades
     </a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="./examples/maps.html">
+    <a class="nav-link" href="{{ url('doctors') }}">
         <i class="ni ni-ambulance text-orange"></i> Medicos
     </a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="./examples/profile.html">
+    <a class="nav-link" href="{{ url('patients') }}">
         <i class="ni ni-circle-08 text-yellow"></i> Pacientes
     </a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="./examples/tables.html">
+    <a class="nav-link" href="#">
         <i class="ni ni-time-alarm text-red"></i> Horarios
     </a>
     </li>
@@ -43,12 +43,12 @@
 <!-- Navigation -->
 <ul class="navbar-nav mb-md-3">
     <li class="nav-item">
-    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+    <a class="nav-link" href="#">
         <i class="ni ni-chart-bar-32 text-info"></i> Frecuencia de Citas
     </a>
     </li>
     <li class="nav-item">
-    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html">
+    <a class="nav-link" href="#">
         <i class="ni ni-chart-pie-35 text-orange"></i> Médicos más activos
     </a>
 </ul>

@@ -1,5 +1,8 @@
 @extends('layouts.panel')
 
+<!-- Se da valor al title -->
+@section('title', 'Dashboard') 
+
 @section('content')
 
 <div class="row">

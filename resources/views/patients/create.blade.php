@@ -1,12 +1,9 @@
 @extends('layouts.panel')
 
 <!-- Se da valor al title -->
-@section('title', 'Nuevo Médico') 
+@section('title', 'Nuevo Paciente') 
 
 @section('content')
-
-
-
 
         <div class="card shadow">
             <div class="card-header border-0">
@@ -15,7 +12,7 @@
                         <h3 class="mb-0">@yield('title')</h3>
                     </div>
                     <div class="col text-right">
-                        <a href="{{ url('doctors') }}" class="btn btn-sm btn-danger">Cancelar y Volver</a>
+                        <a href="{{ url('patients') }}" class="btn btn-sm btn-danger">Cancelar y Volver</a>
                     </div>
                 </div>
             </div>
@@ -29,10 +26,10 @@
                 @endif
             </div>
             <div class="card-body">
-                <form action="{{ url('doctors') }}" method="post">
+                <form action="{{ url('patients') }}" method="post">
                 @csrf
                     <div class="form-group">
-                        <label for="name">Nombre del Medico</label>
+                        <label for="name">Nombre del Paciente</label>
                         <input type="text" name="name" class="form-control" value="{{ old('name') }}"  autocomplete="name" autofocus>
                     </div>
                     <div class="form-group">
@@ -55,8 +52,7 @@
                         <label for="password">Contraseña</label>
                         <input type="password" name="password" class="form-control" value="{{ old('password') }}" autocomplete="password" autofocus>
                         <p>Ingrese una contraseña solo si desea cambiar la actual.</p>
-                    </div>
-      
+                    </div>                    
                     <button type="submit" class="btn btn-primary">Guardar</button>
                 </form>
             </div>

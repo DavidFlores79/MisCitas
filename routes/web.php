@@ -34,5 +34,6 @@ Route::delete('/specialties/{specialty}', 'SpecialtyController@destroy');  //gua
 
 //Doctors
 Route::resource('doctors', 'DoctorController');
+Route::resource('patients', 'PatientController');
 
 //Patients

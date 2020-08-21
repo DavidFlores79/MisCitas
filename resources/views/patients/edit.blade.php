@@ -1,7 +1,7 @@
 @extends('layouts.panel')
 
 <!-- Se da valor al title -->
-@section('title', 'Editar Médico') 
+@section('title', 'Editar Paciente') 
 
 @section('content')
 
@@ -15,7 +15,7 @@
                         <h3 class="mb-0">@yield('title')</h3>
                     </div>
                     <div class="col text-right">
-                        <a href="{{ url('doctors') }}" class="btn btn-sm btn-danger">Cancelar y Volver</a>
+                        <a href="{{ url('patients') }}" class="btn btn-sm btn-danger">Cancelar y Volver</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         </div>
                     </ul>
                 @endif
-                <form action="{{ url('doctors/'.$user->id) }}" method="post">
+                <form action="{{ url('patients/'.$user->id) }}" method="post">
                 @csrf
                 @method('PUT') {{-- alternativa a <input type="hiden" name="_method" value="PUT" porque estamos usando BLADE  --}}
                     <div class="form-group">

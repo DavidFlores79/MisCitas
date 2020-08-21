@@ -7,12 +7,7 @@ use App\User;
 
 class PatientController extends Controller
 {
-    /*Usar un middleware por ejemplo si queremos poner que a esta ruta
-    solo puedan acceder los usuarios logueados pondria lo siguiente:*/
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
     /**
      * Display a listing of the resource.
      *

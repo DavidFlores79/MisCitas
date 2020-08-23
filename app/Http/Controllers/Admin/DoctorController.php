@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Controllers\Controller;
 
-class PatientController extends Controller
+class DoctorController extends Controller
 {
 
     /**
@@ -16,10 +17,9 @@ class PatientController extends Controller
     public function index()
     {
         //
-        $patients = User::patients()->paginate(4); /** Crea paginación para los pacientes */
-        return view('patients.index', compact('patients'));
+        $doctors = User::doctors()->get();
+        return view('doctors.index', compact('doctors'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -29,7 +29,7 @@ class PatientController extends Controller
     public function create()
     {
         //
-        return view('patients.create');
+        return view('doctors.create');
     }
 
     private function performValidation($request)
@@ -66,14 +66,14 @@ class PatientController extends Controller
         //mass assignment
         User::create($request->only('name','email','identity_card','address','phone')
         + [
-            'role' => 'patient',
+            'role' => 'doctor',
             'password' => bcrypt($request->input('password')),
         ] 
     
         );
 
-        $notification = 'El paciente '.$request->name.' se ha creado correctamente';
-        return redirect('/patients')->with(compact('notification'));        
+        $notification = 'El médico '.$request->name.' se ha creado correctamente';
+        return redirect('/doctors')->with(compact('notification'));        
     }
 
     /**
@@ -96,8 +96,8 @@ class PatientController extends Controller
 
     public function edit($id)
     {
-        $user = User::patients()->FindOrFail($id);
-        return view('patients.edit', compact('user'));
+        $user = User::doctors()->FindOrFail($id);
+        return view('doctors.edit', compact('user'));
     }
 
 
@@ -125,7 +125,7 @@ class PatientController extends Controller
         ];
         $this->validate($request, $rules, $messages); 
 
-        $user = User::patients()->FindOrFail($id);
+        $user = User::doctors()->FindOrFail($id);
 
         $data = $request->only('name','email','identity_card','address','phone');
         $password = $request->input('password');
@@ -135,8 +135,8 @@ class PatientController extends Controller
         $user->fill($data);
         $user->save();
 
-        $notification = 'El paciente '.$user->name.' se ha sido editado';
-        return redirect('/patients')->with(compact('notification'));   
+        $notification = 'El médico '.$user->name.' se ha sido editado';
+        return redirect('/doctors')->with(compact('notification'));   
     }
 
     /**
@@ -148,9 +148,9 @@ class PatientController extends Controller
     public function destroy($id)
     {
         //
-        $user = User::patients()->FindOrFail($id);
+        $user = User::doctors()->FindOrFail($id);
         $user->delete();
-        $notification = 'El paciente '.$user->name.' ha sido eliminado';
-        return redirect('/patients')->with(compact('notification'));        
+        $notification = 'El médico '.$user->name.' ha sido eliminado';
+        return redirect('/doctors')->with(compact('notification'));        
     }
 }

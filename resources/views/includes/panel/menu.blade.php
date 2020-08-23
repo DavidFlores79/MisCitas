@@ -35,12 +35,12 @@
         </li>
     @elseif (auth()->user()->role == 'doctor')
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('home') }}">
+            <a class="nav-link" href="{{ url('schedule') }}">
                 <i class="ni ni-calendar-grid-58 text-red"></i> Gestionar Horario
             </a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="{{ url('specialties') }}">
+            <a class="nav-link" href="{{ url('doctors') }}">
                 <i class="ni ni-time-alarm  text-blue"></i> Mis citas
             </a>
             </li>

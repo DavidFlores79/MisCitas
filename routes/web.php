@@ -22,7 +22,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth', 'admin'])->namespace('Admin')->group(function () {
+//Estas son las rutas que estaran asociadas con la ESPECIALIDAD
+    // :: vervo HTTP                                //@ método q atiende la peticion en el controlador
     
     Route::get('/specialties', 'SpecialtyController@index');
     Route::get('/specialties/create', 'SpecialtyController@create');  //muestra formulario de registro
@@ -37,6 +39,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('patients', 'PatientController');
 });
 
-//Estas son las rutas que estaran asociadas con la ESPECIALIDAD
-    // :: vervo HTTP                                //@ método q atiende la peticion en el controlador
-
+Route::middleware(['auth', 'doctor'])->namespace('Doctor')->group(function () {
+    Route::get('/schedule', 'ScheduleController@edit');
+    Route::post('/schedule', 'ScheduleController@store');
+});
+    

@@ -34,7 +34,7 @@
                 @csrf
                 @method('PUT') {{-- alternativa a <input type="hiden" name="_method" value="PUT" porque estamos usando BLADE  --}}
                     <div class="form-group">
-                        <label for="name">Nombre del Doctor</label>
+                        <label for="name">Nombre del Paciente</label>
                         <input type="text" name="name" class="form-control" value="{{ old('name',$user->name) }}"  autocomplete="name" autofocus>
                     </div>
                     <div class="form-group">
@@ -42,7 +42,7 @@
                         <input type="text" name="email" class="form-control" value="{{ old('email',$user->email) }}"  autofocus readonly>
                     </div>
                     <div class="form-group">
-                        <label for="identity_card">Cédula</label>
+                        <label for="identity_card">INE</label>
                         <input type="text" name="identity_card" class="form-control" value="{{ old('identity_card',$user->identity_card) }}"  autocomplete="identity_card" autofocus>
                     </div>
                     <div class="form-group">
